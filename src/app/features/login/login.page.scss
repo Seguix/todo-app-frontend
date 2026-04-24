@@ -1,0 +1,84 @@
+@use "../../../assets/styles/variables" as v;
+
+.login-page {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: v.$space-6;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.login-card {
+    width: min(100%, 420px);
+    padding: v.$space-5;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+
+    h1 {
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    p {
+        margin: 0.2rem 0 0;
+        color: #475569;
+        font-size: 0.95rem;
+    }
+}
+
+.atom-logo {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ffffff;
+    background: radial-gradient(circle at 30% 30%, #60a5fa 0%, #4f46e5 100%);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-3;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.button-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: v.$breakpoint-sm) {
+    .login-page {
+        padding: v.$space-4;
+    }
+
+    .login-card {
+        padding: v.$space-4;
+    }
+}
+
+@media (min-width: v.$breakpoint-md) {
+    .login-card {
+        width: min(100%, 460px);
+        padding: v.$space-6;
+    }
+}
+
+@media (min-width: v.$breakpoint-lg) {
+    .login-page {
+        padding: v.$space-8;
+    }
+}

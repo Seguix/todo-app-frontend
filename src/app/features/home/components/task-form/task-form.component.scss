@@ -1,0 +1,32 @@
+.task-form-card {
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgb(15 23 42 / 6%);
+    padding: 1rem 1rem 1.2rem;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.task-form-header {
+    margin-bottom: 0.25rem;
+
+    h2 {
+        margin: 0;
+        font-size: 1.15rem;
+    }
+
+    p {
+        margin: 0.25rem 0 0;
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .task-form-card {
+        padding: 1.25rem 1.25rem 1.4rem;
+    }
+}

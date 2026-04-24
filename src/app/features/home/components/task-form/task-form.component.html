@@ -1,0 +1,29 @@
+<mat-card class="task-form-card" appearance="outlined">
+    <form class="task-form" novalidate (submit)="onSubmit($event)">
+        <div class="task-form-header">
+            <h2>Nueva tarea</h2>
+            <p>Organiza tu dia y marca avances rapidamente.</p>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Titulo</mat-label>
+            <input matInput [formControl]="titleControl" placeholder="Ej: Terminar prueba tecnica">
+            @if (titleControl.hasError("required") && titleControl.touched) {
+                <mat-error>El titulo es obligatorio</mat-error>
+            }
+            @if (titleControl.hasError("maxlength") && titleControl.touched) {
+                <mat-error>Maximo 80 caracteres</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput [formControl]="descriptionControl" rows="3" placeholder="Opcional"></textarea>
+            @if (descriptionControl.hasError("maxlength") && descriptionControl.touched) {
+                <mat-error>Maximo 500 caracteres</mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">Agregar tarea</button>
+    </form>
+</mat-card>

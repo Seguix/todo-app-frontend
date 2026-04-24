@@ -1,0 +1,35 @@
+<section class="login-page">
+    <mat-card class="login-card">
+        <header class="login-header">
+            <div class="atom-logo" aria-hidden="true">A</div>
+            <div>
+                <h1>Atom Todo</h1>
+                <p>Ingresa tu email para continuar</p>
+            </div>
+        </header>
+
+        <form class="login-form" novalidate (submit)="onSubmit($event)">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" [formControl]="emailControl" placeholder="tu@email.com">
+                @if (emailControl.hasError("required") && emailControl.touched) {
+                    <mat-error>El email es obligatorio</mat-error>
+                }
+                @if (emailControl.hasError("email") && emailControl.touched) {
+                    <mat-error>Ingresa un email valido</mat-error>
+                }
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit" [disabled]="emailControl.invalid || isLoading">
+                @if (isLoading) {
+                    <span class="button-content">
+                        <mat-progress-spinner mode="indeterminate" diameter="18"></mat-progress-spinner>
+                        <span>Validando...</span>
+                    </span>
+                } @else {
+                    <span>Continuar</span>
+                }
+            </button>
+        </form>
+    </mat-card>
+</section>

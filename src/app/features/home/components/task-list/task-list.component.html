@@ -1,0 +1,27 @@
+@if (loading) {
+    <div class="loading-wrap">
+        <mat-progress-spinner mode="indeterminate" diameter="30"></mat-progress-spinner>
+    </div>
+}
+
+@if (error) {
+    <p class="error-message">{{ error }}</p>
+}
+
+@if (!loading && tasks.length === 0) {
+    <app-empty-state
+        icon="check_circle"
+        title="No tienes tareas aun"
+        message="Agrega una tarea para empezar a organizarte."
+    ></app-empty-state>
+}
+
+<section class="tasks-grid">
+    <app-task-item
+        *ngFor="let task of tasks; trackBy: trackById"
+        [task]="task"
+        (toggle)="toggleTask.emit($event)"
+        (edit)="editTask.emit($event)"
+        (remove)="removeTask.emit($event)"
+    ></app-task-item>
+</section>

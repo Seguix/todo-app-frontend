@@ -1,4 +1,20 @@
+@use "assets/styles/variables" as v;
 @import "assets/styles/theme";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+
+:root {
+    --space-4: #{v.$space-4};
+    --space-6: #{v.$space-6};
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--atom-accent-700, #0478dd);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+}

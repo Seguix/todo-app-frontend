@@ -1,5 +1,8 @@
 import { Routes } from "@angular/router";
 
+import { authGuard } from "./core/guards/auth.guard";
+import { guestGuard } from "./core/guards/guest.guard";
+
 export const routes: Routes = [
     {
         path: "",
@@ -7,8 +10,17 @@ export const routes: Routes = [
         pathMatch: "full"
     },
     {
+        path: "login",
+        canActivate: [guestGuard],
+        loadComponent: () => import("./features/login/login.page").then((m) => m.LoginPageComponent)
+    },
+    {
         path: "home",
-        loadComponent: () => import("./modules/example-page/example-page.component").then((m) => m.ExamplePageComponent)
-
+        canActivate: [authGuard],
+        loadComponent: () => import("./features/home/home.page").then((m) => m.HomePageComponent)
+    },
+    {
+        path: "**",
+        redirectTo: "/home"
     }
 ];
