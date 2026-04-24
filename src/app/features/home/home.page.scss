@@ -1,0 +1,68 @@
+@use "../../../assets/styles/variables" as v;
+
+.home-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 16px rgb(15 23 42 / 12%);
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.toolbar-spacer {
+    flex: 1;
+}
+
+.email-label {
+    margin-right: 0.75rem;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+.home-content {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: v.$space-7 v.$space-6 v.$space-8;
+    display: grid;
+    gap: 1.1rem;
+}
+
+.hero {
+    h1 {
+        margin: 0;
+        color: #0f172a;
+        font-size: 1.45rem;
+    }
+
+    p {
+        margin: 0.35rem 0 0;
+        color: #64748b;
+    }
+}
+
+@media (max-width: v.$breakpoint-sm) {
+    .email-label {
+        display: none;
+    }
+
+    .home-content {
+        padding: v.$space-4 0.9rem v.$space-6;
+    }
+}
+
+@media (min-width: v.$breakpoint-md) {
+    .home-content {
+        max-width: 980px;
+        gap: v.$space-5;
+    }
+}
+
+@media (min-width: v.$breakpoint-lg) {
+    .home-content {
+        max-width: 1120px;
+        padding: v.$space-8 v.$space-7;
+    }
+}

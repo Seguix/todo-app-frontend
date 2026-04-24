@@ -107,5 +107,12 @@ $atom-challenge-fe-template-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($atom-challenge-fe-template-theme);
 
+:root {
+  --atom-primary-100: #{mat.get-color-from-palette($atom-challenge-fe-template-primary, 100)};
+  --atom-primary-900: #{mat.get-color-from-palette($atom-challenge-fe-template-primary, 900)};
+  --atom-accent-100: #{mat.get-color-from-palette($atom-challenge-fe-template-accent, 100)};
+  --atom-accent-700: #{mat.get-color-from-palette($atom-challenge-fe-template-accent, 700)};
+}
+
 
 /* You can add global styles to this file, and also import other style files */

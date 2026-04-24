@@ -1,0 +1,29 @@
+<mat-card class="task-card" appearance="outlined">
+    <mat-card-content class="task-main">
+        <mat-checkbox [checked]="task.completed" (change)="toggle.emit(task)"></mat-checkbox>
+        <section class="task-text">
+            <h3 [class.completed]="task.completed">{{ task.title }}</h3>
+            <div class="status-row">
+                <mat-chip class="status-chip" [class.is-completed]="task.completed" [class.is-pending]="!task.completed">
+                    {{ task.completed ? "Completada" : "Pendiente" }}
+                </mat-chip>
+            </div>
+            @if (task.description) {
+                <p>{{ task.description }}</p>
+            }
+            <span class="created-at" [class.no-description]="!task.description">
+                {{ task.createdAt | date:"medium" }}
+            </span>
+        </section>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button type="button" aria-label="Editar tarea" (click)="openEdit()">
+            <mat-icon>edit</mat-icon>
+            Editar
+        </button>
+        <button mat-button type="button" color="warn" aria-label="Eliminar tarea" (click)="confirmRemove()">
+            <mat-icon>delete</mat-icon>
+            Eliminar
+        </button>
+    </mat-card-actions>
+</mat-card>

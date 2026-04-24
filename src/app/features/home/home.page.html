@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="home-toolbar">
+    <span class="brand">Atom Todo</span>
+    <span class="toolbar-spacer"></span>
+    <span class="email-label">{{ authService.currentUser?.email ?? "Sin sesion" }}</span>
+    <button mat-button type="button" (click)="logout()">Cerrar sesion</button>
+</mat-toolbar>
+
+<main class="home-content">
+    <section class="hero">
+        <h1>Tu panel de tareas</h1>
+        <p>Gestiona actividades, marca progreso y mantente enfocado.</p>
+    </section>
+
+    <app-task-form (submitTask)="store.add($event)"></app-task-form>
+
+    <app-task-list
+        [tasks]="store.tasks()"
+        [loading]="store.loading()"
+        [error]="store.error()"
+        (toggleTask)="onToggleTask($event)"
+        (editTask)="onEditTask($event)"
+        (removeTask)="store.remove($event)"
+    ></app-task-list>
+</main>

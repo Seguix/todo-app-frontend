@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Editar tarea</h2>
+
+<form class="edit-form" novalidate (submit)="save($event)">
+    <mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Titulo</mat-label>
+            <input matInput [formControl]="titleControl">
+            @if (titleControl.hasError("required") && titleControl.touched) {
+                <mat-error>El titulo es obligatorio</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput rows="4" [formControl]="descriptionControl"></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" mat-dialog-close>Cancelar</button>
+        <button mat-flat-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+</form>

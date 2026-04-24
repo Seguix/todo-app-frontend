@@ -13,7 +13,7 @@ import {
 
 import { AuthService } from "../../core/services/auth.service";
 import { UserApiService } from "../../core/services/user-api.service";
-import { ConfirmUserDialogComponent } from "./confirm-user-dialog.component";
+import { ConfirmDialogComponent } from "../../shared/ui/confirm-dialog/confirm-dialog.component";
 
 @Component({
     selector: "app-login-page",
@@ -42,7 +42,9 @@ export class LoginPageComponent {
 
     isLoading = false;
 
-    onSubmit(): void {
+    onSubmit(event?: SubmitEvent): void {
+        event?.preventDefault();
+
         if (this.emailControl.invalid || this.isLoading) {
             this.emailControl.markAsTouched();
             return;
@@ -58,8 +60,13 @@ export class LoginPageComponent {
                 }
 
                 return this.dialog
-                    .open(ConfirmUserDialogComponent, {
-                        data: { email },
+                    .open(ConfirmDialogComponent, {
+                        data: {
+                            title: "Crear usuario",
+                            message: `No encontramos el email ${email}. Deseas crear este usuario para continuar?`,
+                            confirmLabel: "Crear",
+                            cancelLabel: "Cancelar"
+                        },
                         disableClose: true
                     })
                     .afterClosed()

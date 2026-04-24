@@ -1,15 +1,17 @@
+@use "../../../assets/styles/variables" as v;
+
 .login-page {
     min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    padding: v.$space-6;
     background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
 }
 
 .login-card {
     width: min(100%, 420px);
-    padding: 1.25rem;
+    padding: v.$space-5;
 }
 
 .login-header {
@@ -45,7 +47,7 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: v.$space-3;
 }
 
 mat-form-field {
@@ -58,12 +60,25 @@ mat-form-field {
     gap: 0.5rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: v.$breakpoint-sm) {
     .login-page {
-        padding: 1rem;
+        padding: v.$space-4;
     }
 
     .login-card {
-        padding: 1rem;
+        padding: v.$space-4;
+    }
+}
+
+@media (min-width: v.$breakpoint-md) {
+    .login-card {
+        width: min(100%, 460px);
+        padding: v.$space-6;
+    }
+}
+
+@media (min-width: v.$breakpoint-lg) {
+    .login-page {
+        padding: v.$space-8;
     }
 }

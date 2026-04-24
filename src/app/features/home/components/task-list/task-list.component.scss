@@ -1,0 +1,18 @@
+.loading-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+}
+
+.error-message {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 0.75rem;
+    padding: 0.65rem 0.8rem;
+}
+
+.tasks-grid {
+    display: grid;
+    gap: 0.95rem;
+}
